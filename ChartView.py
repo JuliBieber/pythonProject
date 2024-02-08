@@ -45,8 +45,8 @@ class ChartView(QChartView):
         self.series.setColor(QColor("red"))
 
         #SplineSeries/Lineseries erstellen um zweiten Graphen zu erstelle
-        self.series4 = QSplineSeries()
-        self.series4.setColor(QColor("green"))
+        self.series1 = QSplineSeries()
+        self.series1.setColor(QColor("green"))
 
         # series mit festgelegtem Datum hinzufügen (Jahr, Monat, Tag, Stunde, Minute)
         #für zweite series kopieren und anpassen
@@ -56,11 +56,11 @@ class ChartView(QChartView):
         self.series.append(QDateTime(2030, 2, 10, 0, 0).toMSecsSinceEpoch(), 3.5)
         self.series.append(QDateTime(2032, 2, 10, 0, 0).toMSecsSinceEpoch(), 7.5)
 
-        self.series4.append(QDateTime(2024, 2, 10, 0, 0).toMSecsSinceEpoch(), 6.5)
-        self.series4.append(QDateTime(2026, 2, 10, 0, 0).toMSecsSinceEpoch(), 5.5)
-        self.series4.append(QDateTime(2028, 2, 10, 0, 0).toMSecsSinceEpoch(), 3.5)
-        self.series4.append(QDateTime(2030, 2, 10, 0, 0).toMSecsSinceEpoch(), 4.5)
-        self.series4.append(QDateTime(2032, 2, 10, 0, 0).toMSecsSinceEpoch(), 7.5)
+        self.series1.append(QDateTime(2024, 2, 10, 0, 0).toMSecsSinceEpoch(), 6.5)
+        self.series1.append(QDateTime(2026, 2, 10, 0, 0).toMSecsSinceEpoch(), 5.5)
+        self.series1.append(QDateTime(2028, 2, 10, 0, 0).toMSecsSinceEpoch(), 3.5)
+        self.series1.append(QDateTime(2030, 2, 10, 0, 0).toMSecsSinceEpoch(), 4.5)
+        self.series1.append(QDateTime(2032, 2, 10, 0, 0).toMSecsSinceEpoch(), 7.5)
 
         # dem chart hinzufügen + Series den Axen zufügen + Name setzen
         #dem chart auch die zweite Series hinzufügen, falls benötigt
@@ -69,10 +69,10 @@ class ChartView(QChartView):
         self.series.attachAxis(self.value_axis)
         self.series.setName("Preisverlauf Döner")
 
-        self.chart.addSeries(self.series4)
-        self.series4.attachAxis(self.date_axis)
-        self.series4.attachAxis(self.value_axis)
-        self.series4.setName("Preisverlauf Kebab")
+        self.chart.addSeries(self.series1)
+        self.series1.attachAxis(self.date_axis)
+        self.series1.attachAxis(self.value_axis)
+        self.series1.setName("Preisverlauf Kebab")
 
 # 2. Series erstellen, wenn keine QDatetime gesetzt wäre, selbst Datum setzen (QLineSeries)
 #        self.series2 = QLineSeries()
